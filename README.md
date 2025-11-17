@@ -1,5 +1,7 @@
 # GameHub
 
+By: Maria Smith
+
 ## Checklist
 
 - [ ] frequent commits to github.
