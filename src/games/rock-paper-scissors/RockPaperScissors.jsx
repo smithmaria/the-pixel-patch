@@ -7,8 +7,17 @@ import Button from '../../components/Button/Button'
 import Scoreboard from './components/Scoreboard'
 import GameBoard from './components/GameBoard'
 import gear from './assets/gear.svg'
+import rock from './assets/rock.png'
+import paper from './assets/paper.png'
+import scissors from './assets/scissors.png'
 
 import './RockPaperScissors.css'
+
+const moveImgs = {
+  rock: rock,
+  paper: paper,
+  scissors: scissors
+}
 
 export function RockPaperScissors() {
   const [gameCount, setGameCount] = useState(0);
@@ -17,12 +26,25 @@ export function RockPaperScissors() {
     cpu: 0,
     ties: 0
   });
+  const [currentMoves, setCurrentMoves] = useState({
+    playerImg: '',
+    cpuImg: ''
+  });
   const [resultMsg, setResultMsg] = useState('');
   const moves = Object.keys(beats);
 
   const playRound = (move) => {
+    
     const cpuMove = getCpuMove();
+    setCurrentMoves({
+      player: move,
+      playerImg: moveImgs[move],
+      cpu: cpuMove,
+      cpuImg: moveImgs[cpuMove]
+    });
+
     const outcome = decideWinner(move, cpuMove);
+    
     setResultMsg(outcome === 'player' ? 'You win!' : outcome === 'cpu' ? 'CPU wins!' : "It's a tie!");
     setGameCount(gameCount + 1);
     setScore((score) => updateScores(score, outcome));
@@ -35,6 +57,11 @@ export function RockPaperScissors() {
       cpu: 0,
       ties: 0
     });
+    setCurrentMoves({
+      playerImg: '',
+      cpuImg: ''
+    })
+    setResultMsg('');
   }
 
   return (
@@ -64,7 +91,9 @@ export function RockPaperScissors() {
 
         <div className='rps-right'>
           <Scoreboard score={score}/>
-          <GameBoard />
+          <GameBoard 
+            moves={currentMoves}
+          />
           <div className='results'>{resultMsg}</div>
         </div>
       </div>

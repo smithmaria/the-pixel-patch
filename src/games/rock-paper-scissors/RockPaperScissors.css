@@ -60,8 +60,22 @@
   }
 }
 
-.move-board {
-  
+/*Game Board*/
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(2, 11fr);
+
+  img {
+    margin: 2rem auto auto auto;
+
+    height: 14rem;
+  }
+}
+
+.make-move {
+  margin-top: 3rem;
+  color: #685e52;
+  text-align: center;
 }
 
 .results {
