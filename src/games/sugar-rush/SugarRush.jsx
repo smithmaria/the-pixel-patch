@@ -1,3 +1,3 @@
-export function RockPaperScissors() {
+export function SugarRush() {
   
 }
