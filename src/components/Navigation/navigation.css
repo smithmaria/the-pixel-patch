@@ -7,9 +7,9 @@
   position: sticky;
 }
 
-.navbar-home {
+.navbar-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
 .logo-home {
@@ -22,12 +22,13 @@
   }
 }
 
-.navbar-game {
-
-}
-
 .logo-game {
+  display: flex;
+  align-items: center;
 
+  img {
+    height: 5rem;
+  }
 }
 
 .menu-icon {
@@ -38,4 +39,13 @@
   img {
     height: 3.5rem;
   }
+}
+
+.game-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--brown-dark);
+  font-size: 2rem;
 }
