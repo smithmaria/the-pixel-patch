@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { useSettings } from '../../context/SettingsContext'
 import { beats, decideWinner, getCpuMove, updateScores } from './logic/game'
 
 import ShadowButton from '../../components/ShadowButton/ShadowButton'
@@ -20,6 +21,8 @@ const moveImgs = {
 }
 
 export function RockPaperScissors() {
+  const { settings } = useSettings();
+
   const [gameCount, setGameCount] = useState(0);
   const [score, setScore] = useState({
     player: 0,
@@ -95,7 +98,10 @@ export function RockPaperScissors() {
         </div>
 
         <div className='rps-right'>
-          <Scoreboard score={score}/>
+          <Scoreboard 
+            playerName={settings?.playerName}
+            score={score}
+          />
           <GameBoard 
             moves={currentMoves}
             resultMsg={resultMsg}

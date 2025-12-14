@@ -13,7 +13,7 @@ export function SettingsProvider({ children }) {
 
   const clearSettings = () => {
     setSettings(null);
-    localStorage.removeItem("user.settings");
+    localStorage.removeItem("userSettings");
   }
 
   return (

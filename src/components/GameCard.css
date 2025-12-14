@@ -2,14 +2,15 @@
   display: grid;
   grid-template-rows: 2fr 1fr;
 
-  color: var(--brown-dark);
-  text-decoration: none;
-
   border: var(--border-thin);
   background-color: var(--white);
 
   div {
     padding: 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
 

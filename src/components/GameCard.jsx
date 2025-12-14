@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom';
 
 import './GameCard.css';
 
-const GameCard = ({ imgPath, name, linkPath }) => {
+const GameCard = ({ imgPath, name, onGameClick }) => {
   return (
-    <Link to={linkPath} className="game-card">
+    <div onClick={onGameClick} className="game-card">
       <div className='game-img'>
         <img src={imgPath} alt="game image" />
       </div>
       <div className='game-label'>
         <div>{name}</div>
       </div>
-    </Link>
+    </div>
 
   )
 }

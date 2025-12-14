@@ -7,6 +7,7 @@ import { RockPaperScissors } from './games/rock-paper-scissors/RockPaperScissors
 import { TicTacToe } from './games/tic-tac-toe/TicTacToe'
 import { Wordle } from './games/wordle/Wordle'
 import { SugarRush } from './games/sugar-rush/SugarRush'
+import { ProtectedRoute } from './shared/ProtectedRoute'
 
 function App() {
 
@@ -17,10 +18,26 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />}/>
-            <Route path="/rps" element={<RockPaperScissors />}/>
-            <Route path="/tictactoe" element={<TicTacToe />}/>
-            <Route path="/wordle" element={<Wordle />}/>
-            <Route path="/sugarrush" element={<SugarRush />}/>
+              <Route path="/rps" element={
+                <ProtectedRoute>
+                  <RockPaperScissors />
+                </ProtectedRoute>
+                }/>
+              <Route path="/tictactoe" element={
+                <ProtectedRoute>
+                  <TicTacToe />                
+                </ProtectedRoute>
+                }/>
+              <Route path="/wordle" element={
+                <ProtectedRoute>
+                  <Wordle />
+                </ProtectedRoute>
+                }/>
+              <Route path="/sugarrush" element={
+                <ProtectedRoute>
+                  <SugarRush />
+                </ProtectedRoute>
+                }/>
           </Routes>
         </main>
       </div>

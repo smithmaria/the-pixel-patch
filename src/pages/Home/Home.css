@@ -20,3 +20,49 @@
   
   font-size: 1.8rem;
 }
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2rem;
+  width: 450px;
+
+  input {
+    padding: .5rem;
+    color: var(--brown-dark);
+    font-family: var(--font-family);
+  }
+}
+
+.modal-input {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  margin-top: 2rem;
+}
+
+.modal-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  margin-top: 3rem;
+}
+
+.error-message {
+  font-size: .8rem;
+  color: #c85418;
+}

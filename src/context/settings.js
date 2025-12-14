@@ -1,6 +1,8 @@
 export function loadSettings() {
-  const raw = localStorage.getItem('user.settings');
-  if (!raw) return null;
+  const raw = localStorage.getItem('userSettings');
+  if (!raw) return {
+    playerName: null
+  };
   try { 
     return JSON.parse(raw); 
   } catch { 
@@ -9,5 +11,5 @@ export function loadSettings() {
 }
 
 export function saveSettings(settings) {
-  localStorage.setItem('user.settings', JSON.stringify(settings));
+  localStorage.setItem('userSettings', JSON.stringify(settings));
 }
