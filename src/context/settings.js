@@ -1,7 +1,10 @@
 export function loadSettings() {
   const raw = localStorage.getItem('userSettings');
   if (!raw) return {
-    playerName: null
+    playerName: null, 
+    games: {
+      rps: { difficulty: 'normal' }
+    }
   };
   try { 
     return JSON.parse(raw); 

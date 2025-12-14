@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { useSettings } from '../../context/SettingsContext'
 import { beats, decideWinner, getCpuMove, updateScores } from './logic/game'
 
+import Modal from '../../components/Modal/Modal'
 import ShadowButton from '../../components/ShadowButton/ShadowButton'
 import Button from '../../components/Button/Button'
 import Scoreboard from './components/Scoreboard'
@@ -21,7 +23,12 @@ const moveImgs = {
 }
 
 export function RockPaperScissors() {
-  const { settings } = useSettings();
+  const { settings, saveSettings } = useSettings();
+  const navigate = useNavigate();
+
+  const [showModal, setShowModal] = useState(true);
+  const [showSettings, setShowSettings] = useState(false);
+  const [difficulty, setDifficulty] = useState(settings?.games.rps.difficulty || 'normal');
 
   const [gameCount, setGameCount] = useState(0);
   const [score, setScore] = useState({
@@ -35,6 +42,35 @@ export function RockPaperScissors() {
   });
   const [resultMsg, setResultMsg] = useState('');
 
+  const gearRef = useRef();
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if(gearRef.current && !gearRef.current.contains(event.target)) {
+        setShowSettings(false);
+      } 
+    };
+
+    if (showSettings) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    }
+  }, [showSettings]);
+
+  const onDropdownChange = ( newDifficulty ) => {
+    setDifficulty(newDifficulty);
+    saveSettings({
+      ...settings,
+      games: {
+        rps: {
+          difficulty: newDifficulty
+        }
+      }
+    });
+  }
+
   // Forces animations every move
   const [animationKey, setAnimationKey] = useState(0);
   
@@ -42,7 +78,10 @@ export function RockPaperScissors() {
 
   const playRound = (move) => {
     
-    const cpuMove = getCpuMove();
+    const cpuMove = getCpuMove(
+      settings?.games.rps.difficulty,
+      move
+    );
     setCurrentMoves({
       player: move,
       playerImg: moveImgs[move],
@@ -74,6 +113,41 @@ export function RockPaperScissors() {
 
   return (
     <>
+      <Modal
+        isVisible={showModal}
+      >
+        <div className='modal-header'>
+          <h3>Game Settings</h3>
+        </div>
+        <div className='modal-body'>
+          <label htmlFor='difficulty'>Difficulty</label>
+          <select
+            className='difficulty-dropdown'
+            id='difficulty'
+            name='difficulty'
+            value={difficulty}
+            onChange={(e) => {onDropdownChange(e.target.value)}}
+          >
+            <option value='easy'>Easy</option>
+            <option value='normal'>Normal</option>
+            <option value='hard'>Hard</option>
+          </select>
+        </div>
+        <div className='modal-buttons'>
+          <Button 
+            text='Start'
+            color='greenLight'
+            onClick={() => {
+              setShowModal(false);
+              onReset();
+            }}
+          />
+          <Button 
+            text='Quit'
+            onClick={() => {navigate('/')}}
+          />
+        </div>
+      </Modal>
       <div className='rps-container'>
         <div className='rps-left'>
           <div className='moves-container'>
@@ -86,13 +160,43 @@ export function RockPaperScissors() {
             ))}
           </div>
           <div className='settings-container'>
+            <div className='game-count'>Difficulty: {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</div>
             <div className='game-count'>Games: {gameCount}</div>
             <div className='resettings'>
               <Button 
                 text='Reset'
+                padding='1rem 1.2rem'
                 onClick={() => onReset()}
               />
-              <img src={gear} alt='settings gear icon'/>
+              <div className='gear-container' ref={gearRef}>
+                <img 
+                  src={gear} 
+                  alt='settings gear icon'
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowSettings(prev => !prev)
+                  }
+                }
+                />
+                {showSettings && 
+                  <div
+                    className='settings-dropdown'
+                    onClick={(e) => {e.stopPropagation()}}
+                  >
+                    <div 
+                      onClick={() => {
+                        setShowSettings(false);
+                        setShowModal(true);
+                      }}
+                    >
+                      Difficulty
+                    </div>
+                    <div onClick={() => {navigate('/')}}>
+                      Return Home
+                    </div>
+                  </div>
+                }
+              </div>
             </div>
           </div>
         </div>

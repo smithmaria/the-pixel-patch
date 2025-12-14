@@ -8,7 +8,7 @@ const colorMap = {
 const Button = ({ 
   text, 
   onClick, 
-  padding = '1rem 1.2rem',
+  padding = '.8rem 1rem',
   color = 'orange'
 }) => {
   return (

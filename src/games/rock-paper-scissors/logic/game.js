@@ -16,7 +16,7 @@ export function getCpuMove({
 } = {}) {
   const moves = ["rock", "paper", "scissors"];
 
-  if (difficulty !== "hard" || !lastPlayerMove) {
+  if (difficulty === "normal" || !lastPlayerMove) {
     return moves[Math.floor(Math.random() * 3)];
   }
 
@@ -26,7 +26,13 @@ export function getCpuMove({
     scissors: "rock" 
   }[lastPlayerMove];
 
-  return Math.random() < 0.6 ? counter : moves[Math.floor(Math.random() * 3)];
+  if (difficulty === "easy") {
+    return Math.random() < 0.4 ? counter : moves[Math.floor(Math.random() * 3)]
+  }
+
+  if (difficulty === "hard") {
+    return Math.random() < 0.6 ? counter : moves[Math.floor(Math.random() * 3)];
+  }
 }
 
 export function updateScores(prev, outcome) {

@@ -80,13 +80,11 @@ export function Home() {
           <Button 
             text='Save'
             onClick={onSaveName}
-            padding='.8rem 1rem'
             color='greenLight'
           />
           <Button 
             text='Cancel'
             onClick={() => setShowModal(false)}
-            padding='.8rem 1rem'
           />
         </div>
       </Modal>

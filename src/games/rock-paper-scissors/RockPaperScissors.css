@@ -1,3 +1,29 @@
+.modal-header h3 {
+  margin: 1rem 0 0 0;
+}
+
+.difficulty-dropdown {
+  margin-top: .4rem;
+  padding: .3rem;
+
+  border: var(--border-thin);
+  background-color: var(--orange-light);
+  font-family: var(--font);
+  color: var(--brown-secondary);
+
+  &:focus-visible {
+    outline: solid var(--orange);
+  }
+}
+
+.modal-body {
+
+}
+
+.modal-buttons {
+
+}
+
 .rps-container {
   display: grid;
   grid-template-columns: .5fr 1.2fr;
@@ -30,16 +56,47 @@
 }
 
 .resettings {
+  position: relative;
   display: flex;
   align-items: center;
 }
 
-.resettings img {
+.gear-container {
+  position: relative;
+}
+
+.gear-container img {
+  position: relative;
   margin-left: 1.5rem;
   height: 2.5rem;
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.settings-dropdown {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-100%);
+  
+  border: var(--border-thin);
+  box-shadow: 0px 6px 16px 0px rgba(0,0,0,0.1);
+  background-color: var(--white);
+  
+  div {
+    padding: 0.9rem;
+    cursor: pointer;
+    transition: .2s;
+    
+    &:hover {
+      background-color: #efe2c9;
+    }
+  }
+
+  div:first-child {
+    border-bottom: var(--border-thin);
   }
 }
 
@@ -74,7 +131,7 @@
 
 .make-move {
   margin-top: 3rem;
-  color: #685e52;
+  color: var(--brown-secondary);
   text-align: center;
 }
 

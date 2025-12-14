@@ -5,7 +5,7 @@ const Modal = ({ children, isVisible }) => {
 
   return (
     <div className="overlay">
-      <div onClick={(e) => e.stopProgration()} className="modal">
+      <div onClick={(e) => e.stopPropagation()} className="modal">
         {children}
       </div>
     </div>
