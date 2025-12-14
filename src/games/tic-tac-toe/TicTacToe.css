@@ -1,0 +1,8 @@
+.ttt-container {
+  display: grid;
+  grid-template-columns: .5fr 1.2fr;
+
+  height: 100%;
+  padding: 3rem 6rem 4.5rem 6rem;
+  box-sizing: border-box;
+}
