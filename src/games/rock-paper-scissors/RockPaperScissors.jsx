@@ -119,7 +119,7 @@ export function RockPaperScissors() {
         <div className='modal-header'>
           <h3>Game Settings</h3>
         </div>
-        <div>
+        <div className='modal-body'>
           <label htmlFor='difficulty'>Difficulty</label>
           <select
             className='difficulty-dropdown'
@@ -133,7 +133,7 @@ export function RockPaperScissors() {
             <option value='hard'>Hard</option>
           </select>
         </div>
-        <div>
+        <div className='modal-buttons'>
           <Button 
             text='Start'
             color='greenLight'
