@@ -154,7 +154,7 @@ export function RockPaperScissors() {
             {moves.map((m) => (
               <ShadowButton
                 key={m}
-                text={m}
+                text={m.toUpperCase()}
                 onClick={() => playRound(m)}
               />
             ))}
