@@ -64,5 +64,5 @@
 
 .error-message {
   font-size: .8rem;
-  color: #c85418;
+  color: var(--red);
 }

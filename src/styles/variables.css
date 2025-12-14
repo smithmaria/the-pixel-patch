@@ -8,6 +8,8 @@
   --white: #fff8e9;
   --brown-dark: #493b2a;
 
+  --red: #c85418;
+
   --border-thin: 2px solid var(--brown-dark);
 
   --primary-font: 'Press Start 2P', system-ui;
