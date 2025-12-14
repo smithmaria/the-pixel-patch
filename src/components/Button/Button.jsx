@@ -9,7 +9,8 @@ const Button = ({
   text, 
   onClick, 
   padding = '.8rem 1rem',
-  color = 'orange'
+  color = 'orange', 
+  fontSize = '1rem'
 }) => {
   return (
     <div 
@@ -17,7 +18,8 @@ const Button = ({
       className='button'
       style={{ 
         padding: padding,
-        backgroundColor: colorMap[color] 
+        backgroundColor: colorMap[color],
+        fontSize: fontSize
       }}
     >
       {text}

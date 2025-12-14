@@ -9,7 +9,7 @@ import ShadowButton from '../../components/ShadowButton/ShadowButton'
 import Button from '../../components/Button/Button'
 import Scoreboard from './components/Scoreboard'
 import GameBoard from './components/GameBoard'
-import gear from './assets/gear.svg'
+import gear from '../../shared/assets/gear.svg'
 import rock from './assets/rock.png'
 import paper from './assets/paper.png'
 import scissors from './assets/scissors.png'
@@ -169,8 +169,8 @@ export function RockPaperScissors() {
                 onClick={() => onReset()}
               />
               <div className='gear-container' ref={gearRef}>
-                <img 
-                  src={gear} 
+                <img
+                  src={gear}
                   alt='settings gear icon'
                   onClick={(e) => {
                     e.stopPropagation();

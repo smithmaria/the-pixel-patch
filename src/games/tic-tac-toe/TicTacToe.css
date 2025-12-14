@@ -1,8 +1,50 @@
 .ttt-container {
   display: grid;
-  grid-template-columns: .5fr 1.2fr;
+  grid-template-columns: .8fr 1fr;
 
   height: 100%;
   padding: 3rem 6rem 4.5rem 6rem;
   box-sizing: border-box;
+}
+
+.ttt-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ttt-settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.ttt-game-count {
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+}
+
+.ttt-resettings {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-left: 1.5rem;
+    height: 2.7rem;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.ttt-scoreboard {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    margin: 1.4rem 0;
+
+    font-size: 1.5rem;
+    text-align: left;
+  }
 }
