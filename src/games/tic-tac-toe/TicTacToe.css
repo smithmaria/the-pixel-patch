@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: .8fr 1fr;
 
+  padding: 3rem 12rem 4.5rem 6rem;
   height: 100%;
-  padding: 3rem 6rem 4.5rem 6rem;
   box-sizing: border-box;
 }
 
@@ -47,4 +47,45 @@
     font-size: 1.5rem;
     text-align: left;
   }
+}
+
+.ttt-message {
+  color: var(--brown-secondary);
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  aspect-ratio: 1 / 1;
+  max-width: 70%;
+  margin: 0 auto;
+
+  button {
+    padding: 2rem;
+
+    background-color: var(--orange-light);
+    border: 5px solid var(--brown-dark);
+  }
+}
+
+.ttt-board > button:nth-child(-n + 3) { border-top: none; }
+.ttt-board > button:nth-child(3n + 1) { border-left: none; }
+.ttt-board > button:nth-child(3n)     { border-right: none; }
+.ttt-board > button:nth-last-child(-n + 3) { border-bottom: none; }
+
+.ttt-img {
+  height: 7rem;
+}
+
+.ttt-result-header {
+  margin-bottom: 0;
+}
+
+.ttt-result-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  margin: 3rem 1.5rem 0 1.5rem;
 }
