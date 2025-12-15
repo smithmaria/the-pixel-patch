@@ -9,6 +9,7 @@ import GameCard from '../../components/GameCard'
 import rpsImg from '../../shared/assets/images/RPS_TN.png'
 import tttImg from '../../shared/assets/images/TicTacToe_TN.png'
 import wordleImg from '../../shared/assets/images/Wordle_TN.png'
+import hangmanImg from '../../shared/assets/images/Hangman_TN.png'
 import './Home.css'
 
 export function Home() {
@@ -111,10 +112,15 @@ export function Home() {
           name='Wordle'
           onGameClick={() => onGameClick('/wordle')}
         />
-        <GameCard
+        {/* <GameCard
           imgPath=''
           name='Sugar Rush'
           onGameClick={() => onGameClick('/sugarrush')}
+        /> */}
+        <GameCard 
+          img={hangmanImg}
+          name='Hangman'
+          onGameClick={() => onGameClick('/hangman')}
         />
       </div>
     </>

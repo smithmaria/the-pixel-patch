@@ -6,6 +6,7 @@ import { Home } from './pages/Home/Home'
 import { RockPaperScissors } from './games/rock-paper-scissors/RockPaperScissors'
 import { TicTacToe } from './games/tic-tac-toe/TicTacToe'
 import { Wordle } from './games/wordle/Wordle'
+import { Hangman } from './games/hangman/Hangman'
 import { SugarRush } from './games/sugar-rush/SugarRush'
 import { ProtectedRoute } from './shared/ProtectedRoute'
 
@@ -33,11 +34,17 @@ function App() {
                   <Wordle />
                 </ProtectedRoute>
                 }/>
-              <Route path="/sugarrush" element={
+              <Route path="/hangman" element={
+                <ProtectedRoute>
+                  <Hangman />
+                </ProtectedRoute>
+              }
+              />
+              {/* <Route path="/sugarrush" element={
                 <ProtectedRoute>
                   <SugarRush />
                 </ProtectedRoute>
-                }/>
+                }/> */}
           </Routes>
         </main>
       </div>

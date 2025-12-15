@@ -1,0 +1,121 @@
+.hangman-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Lexend', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hangman-container h1 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.hangman-drawing {
+  margin: 20px 0;
+}
+
+.word-display {
+  margin: 30px 0;
+}
+
+.word-display h2 {
+  font-size: 3rem;
+  letter-spacing: 10px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.game-info {
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+.game-message {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.game-message.won {
+  background-color: #d4edda;
+  color: #155724;
+  border: 2px solid #c3e6cb;
+}
+
+.game-message.lost {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+.game-message h3 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.game-message button {
+  margin-top: 15px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.game-message button:hover {
+  background-color: #0056b3;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 5px;
+  max-width: 700px;
+  margin-top: 30px;
+}
+
+.letter-btn {
+  padding: 15px 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.letter-btn:hover:not(:disabled) {
+  background-color: #e9ecef;
+  transform: scale(1.05);
+}
+
+.letter-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.letter-btn.correct {
+  background-color: #69aa63;
+  border-color: #69aa63;
+  color: white;
+}
+
+.letter-btn.wrong {
+  background-color: #777c7f;
+  border-color: #777c7f;
+  color: white;
+}
+
+.letter-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}

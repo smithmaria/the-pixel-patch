@@ -8,6 +8,7 @@ const gameTitles = {
   '/rps': 'Rock, Paper, Scissors',
   '/tictactoe': 'Tic Tac Toe',
   '/wordle': 'Wordle',
+  '/hangman': 'Hangman',
   '/sugarrush': 'Sugar Rush'
 };
 
