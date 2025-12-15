@@ -50,6 +50,7 @@
 }
 
 .ttt-message {
+  font-size: 1.2rem;
   color: var(--brown-secondary);
 }
 
@@ -165,4 +166,10 @@
   div, button {
     margin: 1.2rem 0;
   }
+}
+
+.ttt-error {
+  color: var(--red);
+  margin-top: 0.5rem;
+  text-align: center;
 }
