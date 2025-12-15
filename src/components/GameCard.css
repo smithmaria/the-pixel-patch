@@ -15,7 +15,13 @@
 }
 
 .game-img {
+  margin: auto;
+}
 
+.game-thumbnail {
+  margin: auto;
+  max-height: 12rem;
+  max-width: 16rem;
 }
 
 .game-label {

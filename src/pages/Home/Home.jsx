@@ -5,6 +5,10 @@ import { useSettings } from '../../context/SettingsContext'
 import Modal from '../../components/Modal/Modal'
 import Button from '../../components/Button/Button'
 import GameCard from '../../components/GameCard'
+
+import rpsImg from '../../shared/assets/images/RPS_TN.png'
+import tttImg from '../../shared/assets/images/TicTacToe_TN.png'
+import wordleImg from '../../shared/assets/images/Wordle_TN.png'
 import './Home.css'
 
 export function Home() {
@@ -93,17 +97,17 @@ export function Home() {
           {settings?.playerName ? `Hello ${settings.playerName}!` : 'Hello!'}
         </div>
         <GameCard
-          imgPath=''
+          img={rpsImg}
           name='Rock, Paper, Scissors'
           onGameClick={() => onGameClick('/rps')}
         />
         <GameCard
-          imgPath=''
+          img={tttImg}
           name='Tic Tac Toe'
           onGameClick={() => onGameClick('/tictactoe')}
         />
         <GameCard
-          imgPath=''
+          img={wordleImg}
           name='Wordle'
           onGameClick={() => onGameClick('/wordle')}
         />
