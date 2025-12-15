@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "playwright test",
+    "test": "playwright test"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
