@@ -13,9 +13,10 @@ const Button = ({
   fontSize = '1rem'
 }) => {
   return (
-    <div 
+    <button 
       onClick={onClick}
       className='button'
+      aria-label='text'
       style={{ 
         padding: padding,
         backgroundColor: colorMap[color],
@@ -23,7 +24,7 @@ const Button = ({
       }}
     >
       {text}
-    </div>
+    </button>
   )
 }
 

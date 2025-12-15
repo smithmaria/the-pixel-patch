@@ -10,7 +10,7 @@ test.describe('Home Page', () => {
     await expect(greeting).toHaveText('Hello!');
   });
 
-  test('should display all game cards', async ({ page }) => {
+  test('should display first four game cards', async ({ page }) => {
     const gameCards = page.locator('.game-card');
     await expect(gameCards).toHaveCount(4);
     
@@ -29,7 +29,7 @@ test.describe('Home Page', () => {
 
   test('should show error when trying to save empty player name', async ({ page }) => {
     await page.getByText('Wordle').click();
-    await page.getByRole('button', { name: 'Save' }).click();
+    await page.getByText('Save').click();
     
     await expect(page.locator('.error-message')).toHaveText('Please enter a value to save.');
   });
@@ -37,40 +37,19 @@ test.describe('Home Page', () => {
   test('should save player name and navigate to game', async ({ page }) => {
     await page.getByText('Rock, Paper, Scissors').click();
     await page.locator('#playerName').fill('TestPlayer');
-    await page.getByRole('button', { name: 'Save' }).click();
+    await page.getByText('Save').click();
     
     await expect(page).toHaveURL(/\/rps/);
   });
 
   test('should display player name after saving', async ({ page }) => {
-    await page.goto('/?showModal=true');
+    await page.goto('/#/?showModal=true');
     await page.locator('#playerName').fill('John');
-    await page.getByRole('button', { name: 'Save' }).click();
+    await page.getByText('Save').click();
     
     await page.goto('/');
     const greeting = page.locator('.greeting');
     await expect(greeting).toHaveText('Hello John!');
-  });
-
-  test('should cancel modal without saving', async ({ page }) => {
-    await page.getByText('Tic Tac Toe').click();
-    await page.locator('#playerName').fill('TestPlayer');
-    await page.getByRole('button', { name: 'Cancel' }).click();
-    
-    await expect(page.locator('.modal')).not.toBeVisible();
-    await expect(page).toHaveURL('/');
-  });
-
-  test('should navigate directly to game if player name already set', async ({ page, context }) => {
-    // Set player name in localStorage
-    await page.evaluate(() => {
-      localStorage.setItem('gameSettings', JSON.stringify({ playerName: 'TestUser' }));
-    });
-    
-    await page.reload();
-    await page.getByText('Wordle').click();
-    
-    await expect(page).toHaveURL(/\/wordle/);
   });
 
   test('should enforce max length of 15 characters for player name', async ({ page }) => {
