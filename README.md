@@ -1,36 +1,22 @@
-# GameHub
+# The Pixel Patch
 
-By: Maria Smith
+This is a web game hub, currently (Dec 2025) hosted on GitHub Pages. It contains of simple web games, some of which have multiplayer features.
 
-## Checklist
+## Setup
+1. Run project with: 
+```npm run dev```
 
-- [x] frequent commits to github.
-- [x] filled out the self-evaluation.
+## Deployment
+1. Make sure all desired changes are committed and pushed to the repo. 
 
-## Self Grading Guide
-<!--- Update the following line with your self-grade --->
-<!--- Check the Rubric on Canvas for a guideline --->
+2. Build
+```npm run build```
 
-I should get **(40)** out of 70 on this assignment.
+3. Install gh-pages
+```npm install gh-pages --save-dev```
 
-## Self-Reflection
+4. Deploy
+```npx gh-pages -d dist```
 
-- **How long it took me to finish this?**
-<!-- Answer below this line -->
-- 
-It took me probably above 40 hours to get to this point.
-
-- **What do you think of this completion time?**
-<!-- Answer below this line -->
-- 
-I think that it makes sense that it took that long for the amount of detail I wanted to go for this project.
-
-- **In hindsight, what would you do differently?**
-- <!-- Answer below this line -->
-- 
-I would start working even sooner so that I could iron out more details that I wanted to get done.
-
-- **What resources did you use?**
-- <!-- Answer below this line -->
-- 
-I used a lot of w3schools and mozilla docs to complete this assignment.
+## Access
+Access the live site at https://it3049c.github.io/final-project-maria-smith/
