@@ -4,19 +4,27 @@ This is a web game hub, currently (Dec 2025) hosted on GitHub Pages. It contains
 
 ## Setup
 1. Run project with: 
-```npm run dev```
+```
+npm run dev
+```
 
 ## Deployment
 1. Make sure all desired changes are committed and pushed to the repo. 
 
 2. Build
-```npm run build```
+```
+npm run build
+```
 
-3. Install gh-pages
-```npm install gh-pages --save-dev```
+4. Install gh-pages
+```
+npm install gh-pages --save-dev
+```
 
-4. Deploy
-```npx gh-pages -d dist```
+6. Deploy
+```
+npx gh-pages -d dist
+```
 
 ## Access
 Access the live site at https://it3049c.github.io/final-project-maria-smith/
