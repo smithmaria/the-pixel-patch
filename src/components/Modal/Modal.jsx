@@ -1,4 +1,4 @@
-import './modal.css'
+import './Modal.css'
 
 const Modal = ({ children, isVisible }) => {
   if(!isVisible) return null;
