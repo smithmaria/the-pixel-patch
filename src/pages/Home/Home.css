@@ -4,7 +4,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 
-  margin: 5rem;
+  margin: 5rem 5rem 0 5rem;
   padding: 3rem;
 
   border: 5px solid var(--brown-dark);
@@ -65,4 +65,8 @@
 .error-message {
   font-size: .8rem;
   color: var(--red);
+}
+
+.flower-footer {
+  width: 100%;
 }

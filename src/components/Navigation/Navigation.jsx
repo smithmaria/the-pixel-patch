@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import './navigation.css'
 
-import logo from '../../shared/assets/pixel-patch-logo.png';
+import logo from '../../shared/assets/images/pixel-patch-logo.png';
+import logoLong from '../../shared/assets/images/pixel-patch-logo-long.png';
 import menuIcon from '../../shared/assets/menu-bars.svg';
 
 const gameTitles = {
@@ -26,7 +27,7 @@ const gameTitle = gameTitles[location.pathname];
         
         {isHomePage && (
           <div className='logo-home'>
-            <img src={logo} alt='Pixel Patch Logo'/>
+            <img src={logoLong} alt='Pixel Patch Logo'/>
           </div>
         )}
 

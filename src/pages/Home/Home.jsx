@@ -10,6 +10,7 @@ import rpsImg from '../../shared/assets/images/RPS_TN.png'
 import tttImg from '../../shared/assets/images/TicTacToe_TN.png'
 import wordleImg from '../../shared/assets/images/Wordle_TN.png'
 import hangmanImg from '../../shared/assets/images/Hangman_TN.png'
+import flowerFooter from './assets/flower-footer.png'
 import './Home.css'
 
 export function Home() {
@@ -122,6 +123,9 @@ export function Home() {
           name='Hangman'
           onGameClick={() => onGameClick('/hangman')}
         />
+      </div>
+      <div>
+          <img src={flowerFooter} className='flower-footer' alt='pixel art flowers and trees'/>
       </div>
     </>
   )
