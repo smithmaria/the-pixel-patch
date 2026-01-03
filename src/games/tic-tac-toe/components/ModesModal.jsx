@@ -12,7 +12,8 @@ const ModesModal = ({ isVisible, onClose, onGameStart }) => {
 
   const [view, setView] = useState('localOnline');
   const [gameCode, setGameCode] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loadingJoin, setLoadingJoin] = useState(false);
+  const [loadingCreate, setLoadingCreate] = useState(false);
   const [error, setError] = useState('');
 
   const handleLocalClick = () => {
@@ -26,7 +27,7 @@ const ModesModal = ({ isVisible, onClose, onGameStart }) => {
   }
 
   const handleCreateGame = async () => {
-    setLoading(true);
+    setLoadingCreate(true);
     setError('');
     try {
       const initialState = {
@@ -43,7 +44,7 @@ const ModesModal = ({ isVisible, onClose, onGameStart }) => {
     } catch (err) {
       setError('Failed to create game');
     } finally {
-      setLoading(false);
+      setLoadingCreate(false);
     }
   }
 
@@ -76,7 +77,7 @@ const ModesModal = ({ isVisible, onClose, onGameStart }) => {
       return;
     }
   
-    setLoading(true);
+    setLoadingJoin(true);
     setError('');
     try {
       console.log('Attempting to join room:', gameCode);
@@ -85,13 +86,13 @@ const ModesModal = ({ isVisible, onClose, onGameStart }) => {
       
       if (!room || !room.gameState) {
         setError('Game not found');
-        setLoading(false);
+        setLoadingJoin(false);
         return;
       }
       
       if (room.gameState.players?.O) {
         setError('Game is full');
-        setLoading(false);
+        setLoadingJoin(false);
         return;
       }
   
@@ -194,15 +195,15 @@ const ModesModal = ({ isVisible, onClose, onGameStart }) => {
               {error && <div className="ttt-error">{error}</div>}
               <Button 
                 onClick={handleJoinGame}
-                text={loading ? 'Joining...' : 'Join Game'}
-                disabled={loading}
+                text={loadingJoin ? 'Joining...' : 'Join Game'}
+                disabled={loadingCreate || loadingJoin}
                 margin='1rem 4rem'
               />
               <div style={{textAlign: 'center', margin: '1rem 0'}}>OR</div>
               <Button 
                 onClick={handleCreateGame}
-                text={loading ? 'Creating...' : 'Create Game'}
-                disabled={loading}
+                text={loadingCreate ? 'Creating...' : 'Create Game'}
+                disabled={loadingCreate || loadingJoin}
                 margin='0 4rem .8rem 4rem'
               />
             </div>
