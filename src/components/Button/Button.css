@@ -2,8 +2,9 @@
   padding: 1rem 1.2rem;
 
   border: var(--border-thin);
-  font-family: var(--font);
   text-align: center;
+  font-family: var(--font);
+  color: var(--brown-dark);
   transition: .2s;
 
   &:hover {
