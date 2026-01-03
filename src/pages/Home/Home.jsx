@@ -74,6 +74,11 @@ export function Home() {
               placeholder='Player Name'
               value={playerName}
               onChange={e => setPlayerName(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === 'Enter') {
+                  onSaveName();
+                }
+              }}
             />
             {showError &&
             <div className='error-message'>
