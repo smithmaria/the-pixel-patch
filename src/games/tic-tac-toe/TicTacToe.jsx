@@ -129,6 +129,15 @@ export function TicTacToe() {
     }
   }
 
+  const resetGame = async () => {
+    setScore({
+      player1: 0,
+      ties: 0,
+      player2: 0
+    });
+    await resetBoard();
+  }
+
   return (
     <>
       <ResultModal 
@@ -156,7 +165,9 @@ export function TicTacToe() {
           )}
           <SettingsContainer
             gameCount={gameCount}
-            onEndGame={() => {navigate('/')}}
+            onReset={resetGame}
+            setShowModal={setShowModesModal}
+            gameMode={gameMode}
           />
         </div>
         <GameBoard 
