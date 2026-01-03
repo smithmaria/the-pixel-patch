@@ -70,15 +70,16 @@
 .settings-dropdown {
   position: absolute;
   left: 100%;
-  top: 50%;
+  top: 40%;
   transform: translateY(-100%);
+  width: 15rem;
   
   border: var(--border-thin);
   box-shadow: 0px 6px 16px 0px rgba(0,0,0,0.1);
   background-color: var(--white);
   
   div {
-    padding: 0.9rem;
+    padding: 1rem 1.2rem;
     cursor: pointer;
     transition: .2s;
     

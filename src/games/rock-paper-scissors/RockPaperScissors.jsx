@@ -189,7 +189,7 @@ export function RockPaperScissors() {
                         setShowModal(true);
                       }}
                     >
-                      Difficulty
+                      Restart Game
                     </div>
                     <div onClick={() => {navigate('/')}}>
                       Return Home
