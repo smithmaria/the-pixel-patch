@@ -12,7 +12,7 @@ const gameTitles = {
   '/sugarrush': 'Sugar Rush'
 };
 
-export function Navigation() {
+export const Navigation = () => {
 const location = useLocation();
 const isHomePage = location.pathname === '/';
 const gameTitle = gameTitles[location.pathname];
