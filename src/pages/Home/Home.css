@@ -67,6 +67,18 @@
   color: var(--red);
 }
 
-.flower-footer {
+.footer-container {
+  position: relative;
+}
+
+.footer-background {
   width: 100%;
+}
+
+.footer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--brown-secondary);
 }

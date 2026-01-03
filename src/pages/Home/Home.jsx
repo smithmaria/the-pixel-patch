@@ -124,8 +124,9 @@ export function Home() {
           onGameClick={() => onGameClick('/hangman')}
         />
       </div>
-      <div>
-          <img src={flowerFooter} className='flower-footer' alt='pixel art flowers and trees'/>
+      <div className='footer-container'>
+          <img src={flowerFooter} className='footer-background' alt='pixel art flowers and trees'/>
+          <div className='footer-text'>Made By: Maria Smith</div>
       </div>
     </>
   )
