@@ -3,7 +3,7 @@ import './navigation.css'
 
 import logo from '../../shared/assets/images/pixel-patch-logo.png';
 import logoLong from '../../shared/assets/images/pixel-patch-logo-long.png';
-import menuIcon from '../../shared/assets/menu-bars.svg';
+// import menuIcon from '../../shared/assets/menu-bars.svg';
 
 const gameTitles = {
   '/rps': 'Rock, Paper, Scissors',
@@ -43,7 +43,7 @@ const gameTitle = gameTitles[location.pathname];
         )}
 
         <div className='menu-icon'>
-          <img src={menuIcon} alt='Menu'/>
+          {/* <img src={menuIcon} alt='Menu'/> */}
         </div>
       </div>
     </nav>
