@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 20px 8px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -21,56 +21,34 @@
 }
 
 .word-display h2 {
-  font-size: 3rem;
-  letter-spacing: 10px;
-  font-family: monospace;
-  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 6px;
+  font-family: var(--primary-font);
+  color: var(--brown-dark);
 }
 
 .game-info {
   margin: 20px 0;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
+  font-family: var(--primary-font);
+  color: var(--brown-dark);
 }
 
-.game-message {
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 10px;
+.hangman-result-header {
+  margin-top: 0;
+  font-size: 1.2rem;
   text-align: center;
 }
 
-.game-message.won {
-  background-color: #d4edda;
-  color: #155724;
-  border: 2px solid #c3e6cb;
+.hangman-result-word {
+  text-align: center;
 }
 
-.game-message.lost {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 2px solid #f5c6cb;
-}
-
-.game-message h3 {
-  margin-top: 0;
-  font-size: 1.8rem;
-}
-
-.game-message button {
-  margin-top: 15px;
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.2s;
-}
-
-.game-message button:hover {
-  background-color: #0056b3;
+.hangman-result-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  margin: 3rem 1.5rem 0 1.5rem;
 }
 
 .keyboard {
@@ -83,19 +61,18 @@
 
 .letter-btn {
   padding: 15px 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-family: var(--primary-font);
+  font-size: 0.9rem;
   text-transform: uppercase;
-  border: 2px solid #ccc;
-  background-color: white;
-  border-radius: 5px;
+  color: var(--brown-dark);
+  border: var(--border-thin);
+  background-color: var(--white);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: .2s;
 }
 
 .letter-btn:hover:not(:disabled) {
-  background-color: #e9ecef;
-  transform: scale(1.05);
+  background-color: var(--orange-light);
 }
 
 .letter-btn:disabled {
@@ -104,17 +81,13 @@
 }
 
 .letter-btn.correct {
-  background-color: #69aa63;
-  border-color: #69aa63;
-  color: white;
+  background-color: var(--green);
+  border-color: var(--green);
+  color: var(--white);
 }
 
 .letter-btn.wrong {
-  background-color: #777c7f;
-  border-color: #777c7f;
-  color: white;
-}
-
-.letter-btn:active:not(:disabled) {
-  transform: scale(0.95);
+  background-color: var(--red);
+  border-color: var(--red);
+  color: var(--white);
 }

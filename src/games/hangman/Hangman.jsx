@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useSettings } from '../../context/SettingsContext';
+import { useNavigate } from 'react-router-dom';
+import ResultModal from './components/ResultModal';
 import './Hangman.css';
 
 const WORDS = [
@@ -11,7 +12,7 @@ const WORDS = [
 const MAX_WRONG_GUESSES = 6;
 
 export function Hangman() {
-  const { settings } = useSettings();
+  const navigate = useNavigate();
   const [word, setWord] = useState('');
   const [guessedLetters, setGuessedLetters] = useState(new Set());
   const [wrongGuesses, setWrongGuesses] = useState(0);
@@ -72,7 +73,6 @@ export function Hangman() {
 
   return (
     <div className="hangman-container">   
-      <div>Player: {settings?.playerName}</div>   
       <div className="hangman-drawing">
         <svg width="200" height="250">
           {/* Gallows */}
@@ -121,20 +121,14 @@ export function Hangman() {
         <p>Wrong guesses: {wrongGuesses} / {MAX_WRONG_GUESSES}</p>
       </div>
 
-      {gameStatus === 'won' && (
-        <div className="game-message won">
-          <h3>🎉 You Won!</h3>
-          <button onClick={resetGame}>Play Again</button>
-        </div>
-      )}
-
-      {gameStatus === 'lost' && (
-        <div className="game-message lost">
-          <h3>💀 Game Over!</h3>
-          <p>The word was: <strong>{word}</strong></p>
-          <button onClick={resetGame}>Play Again</button>
-        </div>
-      )}
+      <ResultModal
+        isVisible={gameStatus !== 'playing'}
+        message={gameStatus === 'won' ? 'You Won!' : 'Game Over!'}
+        word={word}
+        gameStatus={gameStatus}
+        onPlayAgain={resetGame}
+        onQuit={() => navigate('/')}
+      />
 
       <div className="keyboard">
         {alphabet.map(letter => (
