@@ -1,13 +1,21 @@
 .games-container {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: 2rem;
 
   margin: 5rem 5rem 0 5rem;
   padding: 3rem;
 
   border: 5px solid var(--brown-dark);
+}
+
+@media (max-width: 768px) {
+  .games-container {
+    margin: 5rem 1.5rem 0 1.5rem;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
 }
 
 .greeting {

@@ -1,6 +1,7 @@
 .game-card {
   display: grid;
   grid-template-rows: 2fr 1fr;
+  min-width: 0;
 
   border: var(--border-thin);
   background-color: var(--white);
@@ -16,12 +17,15 @@
 
 .game-img {
   margin: auto;
+  min-width: 0;
 }
 
 .game-thumbnail {
   margin: auto;
   max-height: 12rem;
-  max-width: 16rem;
+  max-width: 100%;
+  width: auto;
+  height: auto;
 }
 
 .game-label {
