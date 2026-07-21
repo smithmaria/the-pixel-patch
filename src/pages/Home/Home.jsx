@@ -131,7 +131,7 @@ export function Home() {
       </div>
       <div className='footer-container'>
           <img src={flowerFooter} className='footer-background' alt='pixel art flowers and trees'/>
-          <div className='footer-text'>Made By: Maria Smith</div>
+          <div className='footer-text'>Site & Pixel Art By: Maria Smith</div>
       </div>
     </>
   )
